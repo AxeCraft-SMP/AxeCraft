@@ -1,0 +1,49 @@
+
+aft.port0.org').then(()=>this.innerText='COPIED!')">📋 Copy IP</button>
+ </div>
+
+ <div class="serverbox">
+  <h3>🟢 JAVA / PREMIUM SERVER</h3>
+  <div class="serverip">YOUR PREMIUM IP</div>
+  <p style="color:#91a9c3;font-size:12px">Replace this with your original-account server IP.</p>
+ </div>
+
+ <a class="discord" href="https://discord.gg/uZcuq4xYef">💬 JOIN OUR DISCORD</a>
+</section>
+
+<footer>
+ ⚔️ AXECRAFT STORE © 2026<br>
+ Made for Minecraft players 💙
+</footer>
+
+<script>
+let cart=[];
+function add(name,price){
+ cart.push({name,price});
+ render();
+}
+function render(){
+ let items=document.getElementById('items');
+ let total=0;
+ if(cart.length===0){
+  items.innerHTML='Your cart is empty.';
+ }else{
+  items.innerHTML=cart.map((item,i)=>{
+   total+=item.price;
+   return `<div>${item.name} - $${item.price} <button onclick="removeItem(${i})" style="background:#263d58;color:white;padding:5px 9px">✖</button></div>`;
+  }).join('');
+ }
+ document.getElementById('total').innerText=total;
+}
+function removeItem(i){
+ cart.splice(i,1);
+ render();
+}
+function clearCart(){
+ cart=[];
+ render();
+}
+</script>
+
+</body>
+</html>
